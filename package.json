@@ -1,0 +1,29 @@
+{
+  "private": true,
+  "main": "build/client/main/main.js",
+  "scripts": {
+    "start": "run-p -r parcel:launch electron:launch",
+    "electron:launch": "run-s parcel:main electron:start",
+    "electron:start": "electron .",
+    "parcel:launch": "parcel client/renderer/index.pug --cache-dir build/cache --port 1124 --out-dir build/client/renderer",
+    "parcel:main": "parcel build client/main/main.ts --cache-dir build/cache --out-dir build/client/main --out-file main --target electron"
+  },
+  "dependencies": {
+    "app-root-path": "^2.1.0",
+    "electron-is-dev": "^1.0.1",
+    "google-protobuf": "^3.6.1",
+    "grpc-web": "^1.0.0",
+    "nib": "^1.1.2",
+    "vue": "^2.5.17",
+    "vue-hot-reload-api": "^2.3.1"
+  },
+  "devDependencies": {
+    "@vue/component-compiler-utils": "^2.3.0",
+    "electron": "^3.0.7",
+    "npm-run-all": "^4.1.3",
+    "parcel-bundler": "^1.10.3",
+    "pug": "^2.0.3",
+    "typescript": "^3.1.6",
+    "vue-template-compiler": "^2.5.17"
+  }
+}

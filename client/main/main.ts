@@ -4,6 +4,11 @@ const { BrowserWindow, app } = require('electron')
 const isDev = require('electron-is-dev')
 const { resolve } = require('app-root-path')
 
+app.on('certificate-error', function(event, webContents, url, error, certificate, callback) {
+  event.preventDefault();
+  callback(true);
+});
+
 app.on('ready', async () => {
   const mainWindow = new BrowserWindow({
     width: 800,

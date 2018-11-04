@@ -71,12 +71,12 @@ ExternalProject_Add(grpc_project
 ExternalProject_Get_Property(grpc_project install_dir)
 add_library(grpc STATIC IMPORTED)
 set_property(TARGET grpc
-  PROPERTY IMPORTED_LOCATION ${install_dir}/lib/libgrpc_unsecure.a
+  PROPERTY IMPORTED_LOCATION ${install_dir}/lib/libgrpc.a
 )
 add_dependencies(grpc grpc_project)
 add_library(grpc++ STATIC IMPORTED)
 set_property(TARGET grpc++
-  PROPERTY IMPORTED_LOCATION ${install_dir}/lib/libgrpc++_unsecure.a
+  PROPERTY IMPORTED_LOCATION ${install_dir}/lib/libgrpc++.a
 )
 add_dependencies(grpc++ grpc_project)
 add_library(gpr STATIC IMPORTED)
@@ -113,7 +113,7 @@ target_link_libraries(protoc-gen-grpc-web
   ${ThirdParty_LIBRARIES}
 )
 
-# # OpenSSL
-# find_package(OpenSSL REQUIRED)
-# list(APPEND ThirdParty_INCLUDE_DIRS ${OPENSSL_INCLUDE_DIRS})
-# list(APPEND ThirdParty_LIBRARIES ${OPENSSL_LIBRARIES})
+# OpenSSL
+find_package(OpenSSL REQUIRED)
+list(APPEND ThirdParty_INCLUDE_DIRS ${OPENSSL_INCLUDE_DIRS})
+list(APPEND ThirdParty_LIBRARIES ${OPENSSL_LIBRARIES})

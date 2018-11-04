@@ -23,7 +23,7 @@ export default {
     }
   },
   mounted () {
-    this.echoService = new EchoServiceClient('http://localhost:8080', null, null);
+    this.echoService = new EchoServiceClient('https://localhost:18080', null, null);
     const request = new ServerStreamingEchoRequest();
     request.setMessageCount(10000);
     request.setMessageInterval(100);
